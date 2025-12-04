@@ -135,6 +135,7 @@ WHERE ia.data_item IS NOT NULL
 ORDER BY ia.data_item ASC
 LIMIT 15;
 
+
 SELECT 
     a.nome AS autor,
     a.nacionalidade,
