@@ -38,3 +38,6 @@ Estrutura
 - `dao/` - Camada de acesso a dados
 - `controllers/` - Controladores JavaFX
 - `resources/` - Arquivos FXML e CSS
+
+video 
+https://youtu.be/VOVFHogJ31Y
