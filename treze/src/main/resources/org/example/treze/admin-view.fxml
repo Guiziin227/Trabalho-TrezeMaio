@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.treze.controllers.AdminController"
+            stylesheets="@styles.css">
+    
+    <top>
+        <VBox styleClass="content-box">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+            <Label text="Painel do Administrador" styleClass="title-label"/>
+        </VBox>
+    </top>
+    
+    <center>
+        <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            
+            <!-- Tab: Gerenciar Biblioteca -->
+            <Tab text="Gerenciar Biblioteca">
+                <fx:include source="biblioteca-view.fxml"/>
+            </Tab>
+            
+            <!-- Tab: Gerenciar Acervo -->
+            <Tab text="Gerenciar Acervo">
+                <fx:include source="acervo-view.fxml"/>
+            </Tab>
+            
+            <!-- Tab: Gerenciar Empréstimos -->
+            <Tab text="Gerenciar Empréstimos">
+                <fx:include source="emprestimo-view.fxml"/>
+            </Tab>
+            
+            <!-- Tab: Gerenciar Usuários -->
+            <Tab text="Gerenciar Usuários">
+                <fx:include source="usuario-view.fxml"/>
+            </Tab>
+        </TabPane>
+    </center>
+    
+</BorderPane>

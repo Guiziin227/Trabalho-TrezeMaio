@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.treze.controllers.EmprestimoController"
+            stylesheets="@styles.css">
+    
+    <top>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            
+            <Label text="Gerenciamento de Empréstimos" styleClass="section-label"/>
+            
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Button text="Novo Empréstimo" onAction="#novoEmprestimo" styleClass="primary-button"/>
+                <Button text="Editar" onAction="#editarEmprestimo"/>
+                <Button text="Excluir" onAction="#excluirEmprestimo"/>
+                <Separator orientation="VERTICAL"/>
+                <Button text="Registrar Devolução" onAction="#registrarDevolucao" styleClass="primary-button"/>
+            </HBox>
+        </VBox>
+    </top>
+    
+    <center>
+        <TableView fx:id="tableEmprestimos">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                <TableColumn fx:id="colUsuario" text="Usuário" prefWidth="200"/>
+                <TableColumn fx:id="colLivro" text="Livro" prefWidth="250"/>
+                <TableColumn fx:id="colDataEmprestimo" text="Data Empréstimo" prefWidth="130"/>
+                <TableColumn fx:id="colDataDevolucao" text="Data Devolução" prefWidth="130"/>
+                <TableColumn fx:id="colSituacao" text="Situação" prefWidth="120"/>
+            </columns>
+        </TableView>
+    </center>
+    
+</BorderPane>

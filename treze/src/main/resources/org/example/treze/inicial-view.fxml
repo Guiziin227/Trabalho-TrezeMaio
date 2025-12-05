@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.treze.controllers.InicialController"
+      alignment="CENTER"
+      spacing="30"
+      stylesheets="@styles.css">
+    
+    <padding>
+        <Insets top="50" right="50" bottom="50" left="50"/>
+    </padding>
+    
+    <Label text="Treze de Maio" styleClass="title-label"/>
+    
+    <Label text="Selecione o tipo de acesso:" styleClass="section-label"/>
+    
+    <HBox alignment="CENTER" spacing="30">
+        <Button text="Administrador" onAction="#abrirAdmin" styleClass="primary-button" 
+                prefWidth="180" prefHeight="80"/>
+        <Button text="Cliente" onAction="#abrirCliente" styleClass="primary-button" 
+                prefWidth="180" prefHeight="80"/>
+    </HBox>
+    
+</VBox>

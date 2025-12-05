@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.treze.controllers.AcervoController"
+            stylesheets="@styles.css">
+    
+    <top>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            
+            <Label text="Gerenciamento de Acervo" styleClass="section-label"/>
+            
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Buscar por:"/>
+                <RadioButton fx:id="rbTitulo" text="Título" selected="true">
+                    <toggleGroup>
+                        <ToggleGroup fx:id="grupoBusca"/>
+                    </toggleGroup>
+                </RadioButton>
+                <RadioButton fx:id="rbTipo" text="Tipo" toggleGroup="$grupoBusca"/>
+                <TextField fx:id="txtBusca" promptText="Digite aqui..." prefWidth="250"/>
+                <ComboBox fx:id="cbTipoBusca" promptText="Selecione o tipo" prefWidth="200" visible="false"/>
+                <Button text="Pesquisar" onAction="#pesquisar" styleClass="primary-button"/>
+                <Button text="Listar Todos" onAction="#listarTodos"/>
+            </HBox>
+            
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Button text="Novo Item" onAction="#novoItem" styleClass="primary-button"/>
+                <Button text="Editar" onAction="#editarItem"/>
+                <Button text="Excluir" onAction="#excluirItem"/>
+            </HBox>
+        </VBox>
+    </top>
+    
+    <center>
+        <TableView fx:id="tableItens">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                <TableColumn fx:id="colTitulo" text="Título" prefWidth="250"/>
+                <TableColumn fx:id="colTipo" text="Tipo" prefWidth="150"/>
+                <TableColumn fx:id="colDataItem" text="Data do Item" prefWidth="120"/>
+                <TableColumn fx:id="colEstado" text="Estado" prefWidth="120"/>
+                <TableColumn fx:id="colDigitalizado" text="Digitalizado" prefWidth="100"/>
+                <TableColumn fx:id="colLocalizacao" text="Localização" prefWidth="150"/>
+            </columns>
+        </TableView>
+    </center>
+    
+</BorderPane>

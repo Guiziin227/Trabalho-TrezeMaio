@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.treze.controllers.BibliotecaController">
+    
+    <stylesheets>
+        <String fx:value="@styles.css"/>
+    </stylesheets>
+    
+    <top>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            
+            <Label text="Gerenciamento de Livros" styleClass="section-label"/>
+            
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Buscar por:"/>
+                <RadioButton fx:id="rbTitulo" text="Título" selected="true">
+                    <toggleGroup>
+                        <ToggleGroup fx:id="grupoBusca"/>
+                    </toggleGroup>
+                </RadioButton>
+                <RadioButton fx:id="rbAutor" text="Autor" toggleGroup="$grupoBusca"/>
+                <TextField fx:id="txtBusca" promptText="Digite aqui..." prefWidth="250"/>
+                <Button text="Pesquisar" onAction="#pesquisar" styleClass="primary-button"/>
+                <Button text="Listar Todos" onAction="#listarTodos"/>
+            </HBox>
+            
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Button text="Novo Livro" onAction="#novoLivro" styleClass="primary-button"/>
+                <Button text="Editar" onAction="#editarLivro"/>
+                <Button text="Excluir" onAction="#excluirLivro"/>
+            </HBox>
+        </VBox>
+    </top>
+    
+    <center>
+        <TableView fx:id="tableLivros">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                <TableColumn fx:id="colTitulo" text="Título" prefWidth="250"/>
+                <TableColumn fx:id="colAutores" text="Autores" prefWidth="150"/>
+                <TableColumn fx:id="colEditora" text="Editora" prefWidth="120"/>
+                <TableColumn fx:id="colAno" text="Ano" prefWidth="70"/>
+                <TableColumn fx:id="colIsbn" text="ISBN" prefWidth="120"/>
+                <TableColumn fx:id="colDisponivel" text="Disponível" prefWidth="80"/>
+                <TableColumn fx:id="colTotal" text="Total" prefWidth="70"/>
+            </columns>
+        </TableView>
+    </center>
+    
+</BorderPane>

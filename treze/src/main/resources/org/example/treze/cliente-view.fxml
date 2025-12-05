@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.treze.controllers.ClienteController"
+            stylesheets="@styles.css">
+    
+    <top>
+        <VBox styleClass="content-box">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+            <Label text="Painel do Cliente" styleClass="title-label"/>
+        </VBox>
+    </top>
+    
+    <center>
+        <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            
+            <!-- Tab: Consulta Biblioteca -->
+            <Tab text="Consulta Biblioteca">
+                <BorderPane>
+                    <top>
+                        <VBox spacing="10">
+                            <padding>
+                                <Insets top="10" right="10" bottom="10" left="10"/>
+                            </padding>
+                            
+                            <Label text="Pesquisar Livros" styleClass="section-label"/>
+                            
+                            <HBox spacing="10" alignment="CENTER_LEFT">
+                                <Label text="Buscar por:"/>
+                                <RadioButton fx:id="rbTitulo" text="Título" selected="true">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="grupoBusca"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton fx:id="rbAutor" text="Autor" toggleGroup="$grupoBusca"/>
+                                <TextField fx:id="txtBuscaLivro" promptText="Digite aqui..." prefWidth="300"/>
+                                <Button text="Pesquisar" onAction="#pesquisarLivros" styleClass="primary-button"/>
+                                <Button text="Listar Todos" onAction="#listarTodosLivros"/>
+                            </HBox>
+                        </VBox>
+                    </top>
+                    
+                    <center>
+                        <TableView fx:id="tableLivros">
+                            <columns>
+                                <TableColumn fx:id="colLivroTitulo" text="Título" prefWidth="250"/>
+                                <TableColumn fx:id="colLivroAutores" text="Autores" prefWidth="180"/>
+                                <TableColumn fx:id="colLivroEditora" text="Editora" prefWidth="150"/>
+                                <TableColumn fx:id="colLivroAno" text="Ano" prefWidth="70"/>
+                                <TableColumn fx:id="colLivroDisponivel" text="Disponível" prefWidth="90"/>
+                            </columns>
+                        </TableView>
+                    </center>
+                </BorderPane>
+            </Tab>
+            
+            <!-- Tab: Consulta Acervo -->
+            <Tab text="Consulta Acervo">
+                <BorderPane>
+                    <top>
+                        <VBox spacing="10">
+                            <padding>
+                                <Insets top="10" right="10" bottom="10" left="10"/>
+                            </padding>
+                            
+                            <Label text="Pesquisar Acervo" styleClass="section-label"/>
+                            
+                            <HBox spacing="10" alignment="CENTER_LEFT">
+                                <Label text="Buscar por:"/>
+                                <RadioButton fx:id="rbNome" text="Nome" selected="true">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="grupoBuscaAcervo"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton fx:id="rbTipo" text="Tipo" toggleGroup="$grupoBuscaAcervo"/>
+                                <TextField fx:id="txtBuscaAcervo" promptText="Digite aqui..." prefWidth="300"/>
+                                <ComboBox fx:id="cbTipoAcervo" promptText="Selecione o tipo" prefWidth="200" visible="false"/>
+                                <Button text="Pesquisar" onAction="#pesquisarAcervo" styleClass="primary-button"/>
+                                <Button text="Listar Todos" onAction="#listarTodosItens"/>
+                            </HBox>
+                        </VBox>
+                    </top>
+                    
+                    <center>
+                        <TableView fx:id="tableItens">
+                            <columns>
+                                <TableColumn fx:id="colItemTitulo" text="Título" prefWidth="250"/>
+                                <TableColumn fx:id="colItemTipo" text="Tipo" prefWidth="150"/>
+                                <TableColumn fx:id="colItemData" text="Data" prefWidth="120"/>
+                                <TableColumn fx:id="colItemEstado" text="Estado" prefWidth="120"/>
+                                <TableColumn fx:id="colItemLocalizacao" text="Localização" prefWidth="150"/>
+                            </columns>
+                        </TableView>
+                    </center>
+                </BorderPane>
+            </Tab>
+        </TabPane>
+    </center>
+    
+</BorderPane>

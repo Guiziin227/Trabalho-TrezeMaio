@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.treze.controllers.UsuarioController"
+            stylesheets="@styles.css">
+    
+    <top>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            
+            <Label text="Gerenciamento de Usuários" styleClass="section-label"/>
+            
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Button text="Novo Usuário" onAction="#novoUsuario" styleClass="primary-button"/>
+                <Button text="Editar" onAction="#editarUsuario"/>
+                <Button text="Excluir" onAction="#excluirUsuario"/>
+            </HBox>
+        </VBox>
+    </top>
+    
+    <center>
+        <TableView fx:id="tableUsuarios">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                <TableColumn fx:id="colNome" text="Nome" prefWidth="250"/>
+                <TableColumn fx:id="colCpf" text="CPF" prefWidth="150"/>
+                <TableColumn fx:id="colEmail" text="Email" prefWidth="250"/>
+            </columns>
+        </TableView>
+    </center>
+    
+</BorderPane>
